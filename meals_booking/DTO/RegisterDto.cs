@@ -6,7 +6,7 @@ namespace API.DTO
     {
         public string SSN { get; set; }
 
-        public string DisplayName { get; set; }
+        public string Name { get; set; }
 
         [EmailAddress]
         public string Email { get; set; }

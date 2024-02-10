@@ -32,6 +32,7 @@ namespace API.Controllers
 
             var user = new AppUser()
             {
+                Name = model.Name,
                 UserName = model.Email.Split('@')[0],
                 Email = model.Email,
                 SSN = model.SSN,
@@ -46,7 +47,8 @@ namespace API.Controllers
 
             return Ok(new AppUserDto
             {
-                Name = user.UserName,
+                Name = user.Name,
+                UserName = user.UserName,
                 Email = model.Email,
                 Role = new List<string>() { "Student" },
                 Token = await _authService.CreateTokenAsync(user, _userManager)
@@ -64,6 +66,7 @@ namespace API.Controllers
 
             var user = new AppUser()
             {
+                Name = model.Name,
                 UserName = model.Email.Split('@')[0],
                 Email = model.Email,
                 SSN = model.SSN,
@@ -78,7 +81,8 @@ namespace API.Controllers
 
             return Ok(new AppUserDto
             {
-                Name = user.UserName,
+                Name = user.Name,
+                UserName = user.UserName,
                 Email = model.Email,
                 Role = new List<string>() { "Admin" },
                 Token = await _authService.CreateTokenAsync(user, _userManager)
@@ -104,7 +108,8 @@ namespace API.Controllers
 
             return Ok(new AppUserDto
             {
-                Name = user.UserName,
+                Name = user.Name,
+                UserName = model.Email.Split('@')[0],
                 Email = model.Email,
                 Role = userRole,
                 Token = await _authService.CreateTokenAsync(user, _userManager)
@@ -119,7 +124,8 @@ namespace API.Controllers
             var user = await _userManager.FindByEmailAsync(email);
             return Ok(new AppUserDto()
             {
-                Name = user.UserName,
+                Name = user.Name,
+                UserName = user.UserName,
                 Email = user.Email,
                 Token = await _authService.CreateTokenAsync(user, _userManager)
             });
@@ -139,7 +145,8 @@ namespace API.Controllers
 
             return Ok(new AppUserDto
             {
-                Name = user.UserName,
+                Name = user.Name,
+                UserName = user.UserName,
                 Email = user.Email,
                 Token = token,
                 Role = userRole
@@ -166,7 +173,8 @@ namespace API.Controllers
 
             return Ok(new AppUserDto
             {
-                Name = user.UserName,
+                Name = user.Name,
+                UserName = user.UserName,
                 Email = model.Email,
                 Token = model.Token,
                 Role = userRole

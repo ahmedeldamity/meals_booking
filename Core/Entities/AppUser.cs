@@ -10,5 +10,6 @@ namespace Core.Entities
     public class AppUser: IdentityUser
     {
         public string SSN { get; set; }
+        public string Name { get; set; }
     }
 }

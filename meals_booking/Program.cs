@@ -150,6 +150,12 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerMiddleware();
 }
 
+if (app.Environment.IsProduction())
+{
+    // -- Add Swagger Middelwares In Extension Method
+    app.UseSwaggerMiddleware();
+}
+
 // -- To this application can resolve on any static file like (html, wwwroot, etc..)
 app.UseStaticFiles();
 

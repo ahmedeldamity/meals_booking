@@ -41,7 +41,7 @@ namespace API.Controllers
 
             var mealBooking = new MealBooking()
             {
-                StudentName = user.UserName,
+                StudentName = user.Name,
                 StudentSSN = user.SSN,
                 StudentEmail = userEmail
             };
